@@ -4,4 +4,26 @@
 
 {% block body %}
 
+    <section class="articles">
+
+        {% for article in articles %}
+        <article>
+            <h2>{{ article.title }}</h2>
+            <div class="content">
+              <img src="{{article.image}}" alt="tutu" >
+                {{ article.description | raw }}
+                <a href="{{ article.github }}" class="btn-primary"></a>
+                <a href="{{ article.weblink }}" class="btn-primary"></a>
+                <a href="{{ path('portefolio_show') }}" class="btn-primary">Lire la suit</a>
+                
+            </div>
+            
+                
+            
+        </article>
+
+        {% endfor %}
+
+    </section>
+
 {% endblock %}
