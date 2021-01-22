@@ -13,8 +13,8 @@ class AdminFixture extends Fixture
         for($i=0; $i<= 10; $i++){
             $Admin= new Admin();
             $Admin->setUsername("Titre de mon projet n° $i")
-                       ->setPassword("<p>Contenu de l'article n°$i</p>")
-                       ->setCreated_at("<p>la date de création</p>");
+                       ->setPassword("<p>Contenu de l'article n°$i</p>");
+                    //    ->setCreated_at("<p>la date de création</p>");
             $manager->persist($Admin);         
 
         }

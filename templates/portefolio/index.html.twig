@@ -4,26 +4,37 @@
 
 {% block body %}
 
-    <section class="articles">
+<h1 class="text-center">mes réalisation</h1>
+
+<p class="text-center mb-5 mx-5
+">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur minima rem consequatur
+    voluptate nihil temporibus optio dolores similique velit quam doloribus est laudantium quibusdam molestiae cumque
+    deserunt unde eum, dolor aliquam eligendi quo beatae praesentium! Id distinctio molestiae, vero deleniti aliquid, ex
+    quisquam ab quae beatae iste .</p>
+
+<section class="article">
+    <div class="row">
 
         {% for article in articles %}
-        <article>
-            <h2>{{ article.title }}</h2>
-            <div class="content">
-              <img src="{{article.image}}" alt="tutu" >
-                {{ article.description | raw }}
-                <a href="{{ article.github }}" class="btn-primary"></a>
-                <a href="{{ article.weblink }}" class="btn-primary"></a>
-                <a href="{{ path('portefolio_show') }}" class="btn-primary">Lire la suit</a>
-                
+        <div class="jumbotron m-5" style="max-height: 35rem; max-width: 20rem;">
+            <h2 class="display-3">{{ article.title }}</h2>
+            <div class="content ">
+                <img class="img-responsive mb-3" src="{{article.image}}" alt="tutu" style="width:100%;">
+                <p class="articlep">{{ article.description }}</p>
+
+                <a href="{{ path('portefolio_show',{ 'id': article.id }) }}" class="btn btn-primary my-2">Lire la
+                    suit</a>
             </div>
-            
-                
-            
+            <a href="https://github.com/amerucci" class=" "><img class="img-responsive m-2" style="width:10%;" src="{{ article.github}}" alt=""></a>
+            <a href="https://unepetitemousse.fr/blog/trucs-et-astuces-biere/"
+                class=" "><img class="img-responsive m-2" style="width:10%;" src="{{ article.weblink }}" alt=""></a>
+
+        </div>
         </article>
 
         {% endfor %}
+    </div>
 
-    </section>
+</section>
 
 {% endblock %}

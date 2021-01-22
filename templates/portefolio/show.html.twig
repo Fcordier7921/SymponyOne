@@ -3,16 +3,17 @@
 {% block body %}
 
     <article>
-            <h2>Titre du projet</h2>
-            <div class="metadata">Publier le 10/05/2020 à 5h20 projet1</div>
-            <div class="content">
-                <img src="http://placehold.it/350x150" alt="">
-                <p>Unde, delectus iure officia expedita ad placeat, eum praesentium cumque accusantium nisi repellat nam corporis!</p>
-                <p>Amet exercitationem harum tenetur quae nihil debitis veniam, eius est quisquam possimus quas deserunt. Architecto!</p>
-                <hr>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis voluptatum tenetur laudantium error, deleniti beatae blanditiis expedita mollitia rerum commodi labore iure eius animi sunt eos, deserunt odio ducimus esse fugit aliquam incidunt maxime magnam tempora. Consequuntur magni delectus animi! Necessitatibus repudiandae unde, quae delectus fugiat vero provident consequatur quaerat?</p>
-                <p>Repellat rerum corrupti laborum odit voluptates fuga esse at, maiores vel tempora eos minima nostrum magni aliquam accusamus commodi vero dignissimos perferendis! Vero inventore architecto excepturi cupiditate eos porro aliquid totam omnis eligendi? Aperiam rerum tempore repellendus possimus inventore, alias, facere, quas eum ex pariatur voluptate quasi itaque. Quo, ut?</p>
+            <h2 class="text-center my-5">{{ article.title }}</h2>
+            <div class="content text-center">
+                <img src="{{article.image}}" alt="tutu" >
+                
             </div>
+            <p class="m-5">{{ article.description | raw }}</p>
+            <div class="ml-5">
+            <a href="https://github.com/amerucci" class=" "><img class="img-responsive m-2" style="width: 2%;" src="{{ article.github}}" alt=""></a>
+            <a href="https://unepetitemousse.fr/blog/trucs-et-astuces-biere/"
+                class=" "><img class="img-responsive m-2" style="width: 2%;" src="{{ article.weblink }}" alt=""></a>
+        </div>
         </article>
 
 {% endblock %}
