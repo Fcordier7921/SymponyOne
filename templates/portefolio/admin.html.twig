@@ -1,9 +1,20 @@
 {% extends "base.html.twig" %}
+{% form_theme formFolio 'bootstrap_4_layout.html.twig' %}
 
 {% block body %}
 
+<h2 class="text-center">Ajouter des projets</h2>
+{{ form_start(formFolio) }}
 
+{{ form_row(formFolio.title, {'attr' : {'placeholder': "Titre du projet"}}) }}
+{{ form_row(formFolio.image, {'attr' : {'placeholder': "URL de l'image du projet"}}) }}
+{{ form_row(formFolio.description, {'attr' : {'placeholder': "Description du projet"}}) }}
+{{ form_row(formFolio.github, {'attr' : {'placeholder': "lien vers le github"}}) }}
+{{ form_row(formFolio.weblink, {'attr' : {'placeholder': "lien vers le site"}}) }}
 
+<button type="submint" class=" btn btn-success">Ajout d'un projet</button>
+
+{{ form_end(formFolio) }}
 
 
 {% endblock %}

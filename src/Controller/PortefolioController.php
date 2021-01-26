@@ -6,10 +6,16 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
-use Doctrine\Persistence\ObjectManager;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use App\Entity\Project;
+use App\Form\FolioType;
 use App\Repository\ProjectRepository;
 
+
+
+// use Doctrine\DBAL\Types\TextType;
 
 class PortefolioController extends AbstractController
 {
@@ -39,18 +45,31 @@ class PortefolioController extends AbstractController
     
     /**
      * @Route("/portefolio/admin", name="admin")
+     * 
      */
-    public function create( Request $request, ObjectManager $manager) {
-
-        $folio= new Folio();
-
-        $form=$this ->createFormBuilder($folio)
-                    ->add('title')
-                    ->add('image')
-                    ->add('content')
-                    ->getForm();
+    public function form( Request $request) {
         
-        return $this ->render('portefolio/admin.html.twig');
+
+        $folio= new Project();
+        
+        $Manager = $this->getDoctrine()->getManager();
+        
+        
+        $form= $this->createForm(FolioType::class, $folio );
+
+        $form ->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()){
+            $Manager->persist($folio);
+            $Manager->flush();
+            
+            
+        }
+
+        
+        return $this ->render('portefolio/admin.html.twig', [
+            'formFolio' => $form->createView()
+        ]);
     }
 
     /**

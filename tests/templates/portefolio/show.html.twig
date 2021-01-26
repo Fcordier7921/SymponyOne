@@ -1,0 +1,19 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+
+    <article>
+            <h2 class="text-center my-5">{{ article.title }}</h2>
+            <div class="content text-center">
+                <img src="{{article.image}}" alt="tutu" >
+                
+            </div>
+            <p class="m-5">{{ article.description | raw }}</p>
+            <div class="ml-5">
+            <a href="https://github.com/amerucci" class=" "><img class="img-responsive m-2" style="width: 2%;" src="{{ article.github}}" alt=""></a>
+            <a href="https://unepetitemousse.fr/blog/trucs-et-astuces-biere/"
+                class=" "><img class="img-responsive m-2" style="width: 2%;" src="{{ article.weblink }}" alt=""></a>
+        </div>
+        </article>
+
+{% endblock %}
