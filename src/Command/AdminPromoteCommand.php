@@ -26,21 +26,21 @@ class AdminPromoteCommand extends Command
 
     protected function configure()
     {
-        $this
-            ->setDescription('Add a short description for your command')
-            ->addArgument('usernam', InputArgument::OPTIONAL, 'Argument description')
-            ->addOption('roles', null, InputOption::VALUE_NONE, 'Option description')
-        ;
+    $this
+    ->setDescription('Promote a user by adding him a new roles.')
+    ->addArgument('username', InputArgument::REQUIRED, 'Username of the user you want to promote.')
+    ->addArgument('roles', InputArgument::REQUIRED, 'The roles you want to add to the user')
+    ;
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $io = new SymfonyStyle($input, $output);
-        $arg1 = $input->getArgument('username');
+        $username = $input->getArgument('username');
         $roles = $input->getArgument('roles');
 
         $userRepository = $this->om->getRepository(Admin::class);
-        $user = $userRepository->findOneBy($arg1);
+        $user = $userRepository->findOneBy(['username' => $username]);      
 
         if ($user) {
             $user->addRoles($roles);

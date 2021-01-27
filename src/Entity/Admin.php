@@ -134,4 +134,11 @@ class Admin implements UserInterface
 
         return $this;
     }
+
+    public function __toString() {
+        return$this->username;
+        return$this->roles;
+        return$this->password;
+            }
+  
 }

@@ -1,3 +1,7 @@
 easy_admin:
     entities:
        - App\Entity\Project
+    site_name: 'Porte Folio'
+    design:
+        assets:
+            css: ['css/custum_easyadmin.css']
