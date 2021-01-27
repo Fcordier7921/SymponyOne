@@ -1,12 +1,33 @@
+body{
+    /* overflow-x: hidden; */
+    width: 100%;
+}
+.wrapper{
+    margin-left: 0;
+    padding: 1rem;
+}
 .main-header{
-    height: 2rem;
-    padding: 2rem;
-    border: black solid 2px;
+    
+    height: 4rem;
+    padding-left: 2rem;
+    background-color: #14213d;
     border-radius: 30px;
+    box-shadow: 5px 5px 5px #000000;
     
 }
-.navbar{
-    padding-right: 2rem;
-    color: fca311;
-    background-color: 14213d;
+
+.logo{
+    color: white!important;
+    
+} 
+.user-menu-wrapper{
+    margin-top: 1.2rem;
+    margin-right: 2rem;
+    
 }
+.navbar-custom-menu .user {
+    color: white;
+
+}
+
+
